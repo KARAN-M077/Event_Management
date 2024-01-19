@@ -1,0 +1,58 @@
+h1 span {
+	font-size: 30px;
+	position: relative;
+	display: inline-block;
+	color: #FF3C41;
+	height: 1.25em;
+	left: 100px;
+	top: -38px;
+	width: 150%;
+	display: block;
+	overflow: hidden;
+}
+.span{
+	
+	animation: animateWords 5s infinite ease;
+	
+}
+.words{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+@keyframes animateWords {
+	0% {
+		
+		transform: translateY(0%);
+		
+	}
+	
+	25% {
+		transform: translateY(-100%);
+		
+	}
+	
+	50% {
+		transform: translateY(-200%);
+	}
+	
+	75% {
+		transform: translateY(-300%);
+	}
+	
+	100% {
+		transform: translateY(-400%);
+	}
+}
+
+body {
+	
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	background-color: #1E1C27;
+	color: white;
+	
+	font-family: 'Geologica', sans-serif;
+}

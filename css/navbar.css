@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+    background: url(blackwhite.png);
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+nav{
+ background:transparent;
+ height: 80px;
+ width: 100%;
+ 
+ 
+}
+.box1{
+    margin-left: 10%;
+    line-height: 90px;
+}
+label.logo{
+    color:#ddd;
+    font-size: 35px;
+    line-height: 100px;
+    padding:0 100px;
+    font-weight: bolder;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+nav ul li a{
+    color:rgb(255, 255, 255);
+    font-size: 17px;
+    padding:10px 15px;
+    border-radius: 5px;
+}
+a:hover{
+    
+    transition: 0.5s;
+    color: rgb(102, 236, 180);
+}
+.checkbtn{
+    font-size: 30px;
+    color:rgb(5, 180, 5);;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px ;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+
+@media(max-width:1200px){
+    label.logo{
+        font-size: 15px;
+        padding-left: 50px;
+    }
+    nav ul li a{
+        font-size: 13px;
+    }
+}
+@media(max-width:860px){
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: relative;
+        width:100%;
+        height: auto;
+        background:transparent;
+        top:80px;
+        left:-100%;
+        text-align: center;
+        transition: all .5s;
+        backdrop-filter: blur(2px);
+        box-shadow: 0 0 15px grey;
+    }
+    nav ul li {
+        display: inline-block;
+        justify-content: space-around;
+        padding: 0 10px;
+        margin:50px 0;
+        line-height:30px ;
+    }
+    nav ul li a{
+        font-size:10px;
+    }
+    a:hover{
+        color: whitesmoke;
+    }
+    #check:checked ~ ul{
+        left:0;
+    }
+}
+
+
+.container{
+    width:100%;
+    height:auto;
+    background:transparent;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    
+}
+
+.front{
+    
+    width: 50px;
+    height: 50%;
+    background-size: cover;
+    background-position: center;
+}
+.front h1{
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding-top: 30%;
+    text-decoration:underline;
+}
+.middle{
+    position: relative;
+    margin-top: 20em;
+    padding-left:5em;
+    margin-left: 5em;
+    transform: translate(-50%,-50%);
+}
+.card
+{
+    cursor: pointer;
+    width:340px;
+    height: 480px;
+
+}
+.front,.back{
+    width:100%;
+    height: 100%;
+    border-radius: 10%;
+    overflow:hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    transition: transform .6s linear;
+}
+
+
+.front{
+   
+    transform: perspective(600px) rotateY(0deg);
+}
+.back{
+    background: #fff;
+    transform: perspective(600px) rotateY(180deg);
+}
+.card:hover > .front{
+    transform: perspective(600px) rotateY(-180deg);
+}
+.card:hover > .back{
+    transform: perspective(600px) rotateY(0deg);
+}
+.back
+{
+    background:url(backimg4.jpg);
+    
+}
+
+.back-content
+{
+    color: #fff;
+    font-style: oblique;
+    font-weight: bolder;
+   text-align: left;
+   margin-top: 3em;
+   padding-left:0.5em ;
+    
+}
+.back-content a{
+    color: olive;
+}
+
+.back-content button{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    top:50px;
+    left:115px;
+    padding: 7px 15px 7px;
+    background: olive;
+    cursor: pointer;
+    
+    
+}
+
+
+
+.section{
+    
+    margin-top: 200px;
+    background:transparent;
+    display: flex;
+    flex-wrap: wrap;
+    color:lightblue;
+    padding: 20px 10px 20px;
+  
+}
+.container1 h1{
+    font-size: 1000px;
+}
+span{
+    color: green;
+}
+.section p{
+    font-size: large;
+    font-weight: 900;
+    font-family: 'Times New Roman', Times, serif;
+}
+.section1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 15px grey;
+
+}
+.social-media{
+    display: flex;
+    flex-wrap: wrap;
+    
+    justify-content: space-between;
+    position: relative;
+    top: -26px;
+    font-size: larger;
+    padding: 10px 10px 10px;
+}
+.social-media  a{
+    display: inline-flex;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    color: olive;
+    font-size: 25px;
+    transition: 0.4s;
+    border-radius: 50%;
+   
+}
+.social-media a:hover
+{
+    background: olive;
+    color: #fff;
+}
+.section1 h3 {
+    color: #ddd;
+}
+.section1 h1{
+    color: #ddd;
+}
+.section1 .box a{
+    color: olive;
+}
+.hai{
+    background: url(b-ducati.jpg);
+}
+
+
+#front1{
+    background: url(presentation1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#front2{
+    background: url(techtalk1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#front3{
+    background: url(business.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#front4{
+    background: url(electrical.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#front5{
+    background: url(quiz.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#front6{
+    background: url(idea.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#front7{
+    background: url(presentation1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#front8{
+    background: url(presentation1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#front9{
+    background: url(presentation1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+/*.header h1{
+    color: olive;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+    top: 100px;
+    font-size: 80px;
+    font-weight: 900;
+    text-decoration:underline;
+}*/
+.text{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    top:50px;
+    color:green;
+}
+.section .h1{
+    font-size: 100px;
+}
+.section{
+    height: 700px;
+}

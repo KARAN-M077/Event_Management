@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Participant Count</title>
+    <style>
+        body{
+            background: url(/images/adbg1.jpg);
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+        .outer{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            margin-left:10%;
+            margin-right:10%;
+            text-align: center;
+           justify-content: space-around;
+           background: rgb(168, 168, 168);
+           backdrop-filter: blur(5px);
+            height: auto;
+            border-radius: 35px;
+         
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+       
+        .inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:rgb(93, 93, 93);
+            width: 200px;
+            height: 180px;
+            color: #ddd;
+            margin: 2%;
+            border-radius: 35px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        }
+        .h1{
+            text-align: center;
+            color: #ddd;
+            font-weight: 900;
+        }
+      
+        .intro{
+            display: none;
+        }
+        
+        
+        .inner:hover .intro{
+                display: block;
+        }
+        .inner:hover h3{
+                display: none;
+                
+        }
+        .inner {
+    opacity: 1;
+}
+
+.inner:hover {
+    opacity: 1;
+}
+
+.outer:hover .inner:not(:hover) {
+    opacity: 0.5;
+}
+.intro p{
+    font-size: 20px;
+}
+     
+button {
+  background: #FBCA1F;
+  font-family: inherit;
+  padding: 0.6em 1.3em;
+  font-weight: 900;
+  font-size: 13px;
+  border: 3px solid black;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
+  
+}
+
+button:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.15em 0.15em;
+}
+
+button:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em;
+}    
+    </style>
+</head>
+<body>
+    <h1 class="h1">Participant Count Details</h1>
+    <div class="outer">
+    <div  class="inner">
+    
+      <h3>Paper Presentation </h3>
+      <div class="intro">
+     <h5> Total Participant Enrolled : <p  class="slide" id="count_paper"></p></h5>
+      <a href="/paperinfo"> <button> Edit</button></a>
+     </div>
+    </div>
+
+    <div class="inner">
+        <h3>Tech Talk </h3>
+        <div class="intro">
+       <h5> Total Participant Enrolled : <p class="slide" id="count_tech"></p></h5>
+       <a href="/techinfo"> <button> Edit</button></a>
+        </div>
+      </div>
+    
+      <div class="inner">
+        <h3>Business Idea </h3>
+        <div class="intro">
+       <h5> Total Participant Enrolled : <p class="slide" id="count_bun"></p></h5>
+       <a href="/buninfo"> <button> Edit</button></a>
+       </div>
+      </div>
+
+      <div class="inner" >
+        <h3>Code Camp </h3>
+        <div class="intro">
+       <h5> Total Participant Enrolled : <p  class="slide"id="count_code"></p></h5>
+       <a href="/codeinfo"> <button> Edit</button></a>
+       </div>
+      </div>
+
+      <div class="inner">
+        <h3>Data Hack </h3>
+        <div class="intro">
+       <h5> Total Participant Enrolled : <p  class="slide"id="count_datahack"></p></h5>
+       <a href="/datahackinfo"> <button> Edit</button></a>
+        </div>
+      </div>
+
+      <div class="inner">
+        <h3>Make Electronics </h3>
+        <div class="intro">
+       <h5> Total Participant Enrolled : <p  class="slide"id="count_elec"></p></h5>
+       <a href="/elecinfo"> <button> Edit</button></a>
+       </div>
+      </div>
+
+      <div class="inner">
+        <h3>Future Tech Summit </h3>
+        <div class="intro">
+       <h5> Total Participant Enrolled : <p class="slide" id="count_future"></p></h5>
+       <a href="/futureinfo"> <button> Edit</button></a>
+       </div>
+      </div>
+
+      <div class="inner">
+        <h3>Ideathon </h3>
+        <div class="intro">
+       <h5> Total Participant Enrolled : <p class="slide" id="count_ideathon"></p></h5>
+       <a href="/ideathoninfo"> <button> Edit</button></a>
+       </div>
+      </div>
+
+      <div class="inner">
+        <h3>Quiz </h3>
+        <div class="intro">
+       <h5> Total Participant Enrolled : <p class="slide" id="count_quiz"></p></h5>
+       <a href="/quizinfo"> <button> Edit</button></a>
+       </div>
+      </div>
+      </div>
+    <script>
+       
+        fetch('/Count/paper')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('count_paper').innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+            
+
+            
+        fetch('/Count/tech')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('count_tech').innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+            
+
+          
+            fetch('/Count/bun')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('count_bun').innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+
+            fetch('/Count/code')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('count_code').innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+
+            fetch('/Count/datahack')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('count_datahack').innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+
+
+            fetch('/Count/elec')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('count_elec').innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+
+            fetch('/Count/future')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('count_future').innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+
+            fetch('/Count/ideathon')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('count_ideathon').innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+
+            
+            fetch('/Count/quiz')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('count_quiz').innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+            
+    </script>
+</body>
+</html>

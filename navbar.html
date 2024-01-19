@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="navbar.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"  />
+    <title>Event Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+    background: url(images/blackwhite.png);
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+nav{
+ background:transparent;
+ height: 80px;
+ width: 100%;
+ position: sticky;
+ top:0;
+ 
+ 
+}
+.box1{
+    margin-left: 10%;
+    line-height: 90px;
+}
+label.logo{
+    color:#ddd;
+    font-size: 35px;
+    line-height: 100px;
+    padding:0 100px;
+    font-weight: bolder;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+nav ul li a{
+    color:rgb(255, 255, 255);
+    font-size: 17px;
+    padding:10px 15px;
+    border-radius: 5px;
+}
+a:hover{
+    
+    transition: 0.5s;
+    color: rgb(102, 236, 180);
+}
+.checkbtn{
+    font-size: 30px;
+    color:rgb(5, 180, 5);;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px ;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+
+@media(max-width:1200px){
+    label.logo{
+        font-size: 15px;
+        padding-left: 50px;
+    }
+    nav ul li a{
+        font-size: 13px;
+    }
+}
+@media(max-width:860px){
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: relative;
+        width:100%;
+        height: auto;
+        background:transparent;
+        top: -100px;
+        left:-100%;
+        text-align: center;
+        transition: all .5s;
+        backdrop-filter: blur(2px);
+        box-shadow: 0 0 15px grey;
+    }
+    nav ul li {
+        display: inline-block;
+        justify-content: space-around;
+        padding: 0 10px;
+        margin:50px 0;
+        line-height:30px ;
+    }
+    nav ul li a{
+        font-size:10px;
+    }
+    a:hover{
+        color: rgb(57, 189, 101);
+    }
+    #check:checked ~ ul{
+        left:0;
+    }
+}
+.head span {
+	font-size: 50px;
+	position: relative;
+	display: inline-block;
+	color: #FF3C41;
+	height: 1.25em;
+	left: 130px;
+	top: -38px;
+	width: 150%;
+	display: block;
+	overflow: hidden;
+}
+.head{
+    color: #ddd;
+    font-weight: 900;
+    font-size: 40px;
+}
+.span{
+	
+	animation: animateWords 5s infinite ease;
+	
+}
+
+
+@keyframes animateWords {
+	0% {
+		
+		transform: translateY(0%);
+		
+	}
+	
+	25% {
+		transform: translateY(-90%);
+		
+	}
+	
+	50% {
+		transform: translateY(-180%);
+	}
+	
+	75% {
+		transform: translateY(-280%);
+	}
+	
+	100% {
+		transform: translateY(-380%);
+	}
+}
+
+
+
+
+.container{
+    width:100%;
+    height:auto;
+    background:transparent;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    
+}
+
+.front{
+    
+    width: 50px;
+    height: 50%;
+    background-size: cover;
+    background-position: center;
+}
+.front h1{
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding-top: 30%;
+    text-decoration:underline;
+}
+.middle{
+    position: relative;
+    margin-top: 20em;
+    padding-left:5em;
+    margin-left: 5em;
+    transform: translate(-50%,-50%);
+}
+.card
+{
+    cursor: pointer;
+    width:340px;
+    height: 480px;
+
+}
+.front,.back{
+    width:100%;
+    height: 100%;
+    border-radius: 10%;
+    overflow:hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    transition: transform .6s linear;
+}
+
+
+.front{
+   
+    transform: perspective(600px) rotateY(0deg);
+}
+.back{
+    background: #fff;
+    transform: perspective(600px) rotateY(180deg);
+}
+.card:hover > .front{
+    transform: perspective(600px) rotateY(-180deg);
+}
+.card:hover > .back{
+    transform: perspective(600px) rotateY(0deg);
+}
+.back
+{
+    background:url(/images/frontimg.jpg);
+    
+}
+
+.back-content
+{
+    color: #fff;
+    font-style: oblique;
+    font-weight: bolder;
+   text-align: left;
+   margin-top: 3em;
+   padding-left:0.5em ;
+    
+}
+.back-content a{
+    color: olive;
+}
+
+.back-content button{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    top:50px;
+    left:115px;
+    padding: 7px 15px 7px;
+    background: olive;
+    cursor: pointer;
+    
+    
+}
+
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.section{
+    
+    margin-top: 200px;
+    background:transparent;
+    display: flex;
+    flex-wrap: wrap;
+    color:lightblue;
+    padding: 20px 10px 20px;
+  
+}
+.container1 h1{
+    font-size: 1000px;
+}
+span{
+    color: green;
+}
+.section p{
+    font-size: large;
+    font-weight: 900;
+    font-family: 'Times New Roman', Times, serif;
+}
+.section1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 15px grey;
+
+}
+.social-media{
+    display: flex;
+    flex-wrap: wrap;
+    color: #ddd;
+    justify-content: space-between;
+    position: relative;
+    top: -26px;
+    font-size: larger;
+    padding: 10px 10px 10px;
+}
+.social-media  i{
+    display: inline-flex;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    color:olive;
+    font-size: 25px;
+    transition: 0.4s;
+    border-radius: 50%;
+   
+}
+.social-media i:hover
+{
+    background: olive;
+    color: #fff;
+}
+.section1 h3 {
+    color: #ddd;
+}
+.section1 h1{
+    color: #ddd;
+}
+.section1 .box a{
+    color: olive;
+}
+/*.hai{
+    background: url(b-ducati.jpg);
+}*/
+
+
+#front1{
+    background: url(images/presentation1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#front2{
+    background: url(images/techtalk1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#front3{
+    background: url(images/business.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#front4{
+    background: url(images/electrical.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#front5{
+    background: url(images/quiz.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#front6{
+    background: url(images/idea.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#front7{
+    background: url(images/future\ tech.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#front8{
+    background: url(images/datahack.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#front9{
+    background: url(images/code.jpg);
+    background-size: cover;
+    background-position: center;
+}
+/*.header h1{
+    color: olive;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+    top: 100px;
+    font-size: 80px;
+    font-weight: 900;
+    text-decoration:underline;
+}*/
+.text{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    top:50px;
+    color:rgb(55, 189, 131);
+
+}
+.text{
+    font-size: 80px;
+    font-weight: bolder;
+}
+.h1 span{
+    font-size: 100px;
+}
+.section .h1{
+    font-size: 60px;
+}
+.section{
+    height: 700px;
+}
+.h1{
+    letter-spacing: 6px;
+}
+
+   .box1 p{
+    line-height: 50px;
+   }
+   #event{
+    transition: 2s;
+   }
+   .logo a{
+        color: #ddd;
+   }
+   .logo i{
+    font-size: .8rem;
+   }
+   .btnnew {
+  font-size: 1.2rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: rgb(14, 14, 26);
+  color: rgb(234, 234, 234);
+  font-weight: 700;
+  transition: 0.6s;
+  box-shadow: 0px 0px 60px #1f4c65;
+  -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+
+ 
+
+}
+
+.btnnew:active {
+  scale: 0.92;
+}
+
+.btnnew:hover {
+  background: rgb(2,29,78);
+  background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+  color: rgb(4, 4, 38);
+
+}
+.let{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    top: -310px;
+}
+.head h1 {
+    font-size: 50px;
+    margin-left: -550px;
+}
+.words{
+    margin-left: -15%;
+}
+.span span{
+    color: aquamarine;
+    
+}
+.section .h1{
+    line-height: 70px;
+}
+@media screen and  (max-width:320px) {
+    .section{
+        width: 90%;
+    }
+    .section span {
+        font-size: 60px;
+    }
+    .section p{
+        font-size: x-small;
+    }
+    .section .h1{
+        font-size: x-large;
+    }
+    nav{
+        width: 100%;
+    }
+    .let{
+        position: relative;
+        top:-80px;
+        left: 5%;
+    }
+    .container .box{
+        margin-left: 60%;
+    }
+    
+    .section1{
+        width: 105%;
+      }
+    .head{
+        position: relative;
+        left: -60px;
+        font-size: large;
+    }
+    .front{
+    
+    width: 250px;
+    height: 400px;
+    margin-left: 10%;
+    }
+    .header span {
+        font-size: large;
+        position: relative;
+        left: 63px;
+        top: -27px;
+    }
+    .container .box{
+       
+        position: relative;
+        left: -100px;
+        width: 300px;
+        height: 500px;
+    }
+   .logo i{
+    display: none;
+   }
+}
+@media screen and  (max-width:483px) {
+    .section{
+        width: 90%;
+    }
+    .section span {
+        font-size: 80px;
+    }
+    .section p{
+        font-size: large;
+    }
+    .section .h1{
+        font-size: xx-large;
+    }
+    nav{
+        width: 100%;
+    }
+    .let{
+        position: relative;
+        top:-200px;
+        left: 5%;
+    }
+    .container .box{
+        margin-left: 60%;
+    }
+    
+    .section1{
+        width: 105%;
+      }
+    .head{
+        position: relative;
+        left: -100px;
+        font-size: xx-large;
+    }
+    .front{
+    
+    width: 250px;
+    height: 400px;
+    margin-left: 10%;
+    }
+    .header span {
+        font-size: xx-large;
+        position: relative;
+        left: 110px;
+        top: -29px;
+    }
+    .container .box{
+       
+        position: relative;
+        left: -160px;
+        width: 300px;
+        height: 500px;
+    }
+   .logo i{
+    display: none;
+   }
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i></label>
+        <label class="logo">Alpha Force <sup> <a href="#"><i class="fa-regular fa-copyright"></i> </a></sup> </label>
+        <ul>
+            <li><a href="/frontpage">Home</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Follow</a></li>
+        </ul>
+    </nav>
+    <div class="section">
+        <div class="box1"><p class="h1"><span>N</span>ational
+            <br><span>S</span>ymposium</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, magnam! Perspiciatis, suscipit quasi corrupti porro illo iure nemo sint, hic veritatis ut reiciendis tempora aliquid numquam maxime deserunt delectus id!</p>
+            <br>
+            </div>
+    </div>
+    <div class="let">
+   <a href="#event"> <button class="btnnew">
+        Let's Go
+    </button></a></div>
+      
+      
+    <section id="event">
+    <div class="header">
+        <div class="words">
+            <h1 class="head">
+                Never gonna
+                <span>
+                    <span class="span">give you up</span>
+                    <span class="span">let you down</span>
+                    <span class="span">turn around</span>
+                    <span class="span">give you up</span>
+                    <span class="span">let you down</span>
+                    <span class="span">turn around</span><span class="span">give you up</span>
+                    <span class="span">let you down</span>
+                    <span class="span">turn around</span>
+            </h1>
+        </div>
+        </div>
+    <div class="container">
+        <div class="box">
+            <div class="card middle">
+                <div class="front" id="front1" >
+                    
+                    <h1>PAPER PRESENTATION</h1>
+                </div>
+                <div class="back">
+                    <div class="back-content">
+                        <h3><a href="#"><i class="fa-solid fa-clock"></i></a> TIME:00:00 AM</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-book"></i></a> TOPIC:BlockChain,Processor, Metaverse, 5G technology</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-people-group"></i></a> TEAM-MEMBERS: <br>2-MEMBERS(MAX)</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-clock"></i></a> DURATION: 15mins TO 20mins</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-location-dot"></i></a> VENUE:Maharaja</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-dollar-sign"></i></a> FESS:100/-PerTeam</h3>
+                        <a href="/paper"><button>REGISTER</button></a>
+                    </div>
+                   
+                </div>
+            </div>
+        
+        </div>
+
+       <div class="box">
+        <div class="card middle">
+            <div class="front" id="front2">
+                <h1>TECH TALK</h1>
+                
+            </div>
+            <div class="back">
+                <div class="back-content">
+                    <h3><a href="#"><i class="fa-solid fa-clock"></i></a> TIME:00:00 AM</h3>
+                    <br>
+                    <h3><a href="#"><i class="fa-solid fa-people-group"></i></a> TEAM-MEMBERS:<br> 2-MEMBERS(MAX)</h3>
+                    <br>
+                    <h3><a href="#"><i class="fa-solid fa-clock"></i></a> DURATION: 15mins TO 20mins</h3>
+                    <br>
+                    <h3><a href="#"><i class="fa-solid fa-location-dot"></i></a> VENUE:Maharaja</h3>
+                    <br>
+                    <h3><a href="#"><i class="fa-solid fa-dollar-sign"></i></a> FEES: 100/-PerTeam</h3>
+                    <a href="/tech"><button>REGISTER</button></a>
+                </div>
+                
+            </div>
+        </div>
+        
+        </div>
+
+
+       <div class="box">
+        <div class="card middle">
+            <div class="front" id="front3">
+                <h1>BUSINESS IDEA</h1>
+            </div>
+            <div class="back">
+                <div class="back-content">
+                    <h3><a href="#"><i class="fa-solid fa-clock"></i></a> TIME:00:00 AM</h3>
+                    <br>
+                    <h3><a href="#"><i class="fa-solid fa-people-group"></i></a> TEAM-MEMBERS: <br>2-MEMBERS(MAX)</h3>
+                    <br>
+                    <h3><a href="#"><i class="fa-solid fa-clock"></i></a> DURATION: 15mins TO 20mins</h3>
+                    <br>
+                    <h3><a href="#"><i class="fa-solid fa-location-dot"></i></a> VENUE:Maharaja</h3>
+                    <br>
+                    <h3><a href="#"><i class="fa-solid fa-dollar-sign"></i></a> FEES: 100/-PerTeam</h3>
+                    <a href="/bun"><button>REGISTER</button></a>
+                </div>
+               
+                
+                
+            </div>
+        </div>
+        </div>
+
+
+        <div class="box">
+            <div class="card middle">
+                <div class="front" id="front4">
+                    <h1>MAKE ELECTRONICS</h1>
+                </div>
+                <div class="back">
+                    <div class="back-content">
+                        <h3><a href="#"><i class="fa-solid fa-clock"></i></a> TIME:00:00 AM</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-people-group"></i></a> TEAM-MEMBERS: <br>2-MEMBERS(MAX)</h3>
+                        <br>
+                        <h3> DURATION: 15mins TO 20mins</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-location-dot"></i></a> VENUE:Maharaja</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-dollar-sign"></i></a> FEES: 100/-PerTeam</h3>
+                        <a href="/elec"><button>REGISTER</button></a>
+                    </div>
+
+                   
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="card middle">
+                <div class="front" id="front5">
+                    <h1>BIZ QUIZ</h1>
+                
+                </div>
+                <div class="back">
+                    <div class="back-content">
+                        <h3><a href="#"><i class="fa-solid fa-clock"></i></a> TIME:00:00 AM</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-people-group"></i></a> TEAM-MEMBERS: <br>2-MEMBERs(MAX)</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-clock"></i></a> DURATION: 15mins TO 20mins</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-location-dot"></i></a> VENUE:Maharaja</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-dollar-sign"></i></a> FEES: 100/-PerTeam</h3>
+                        <a href="/quiz"><button>REGISTER</button></a>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="card middle">
+                <div class="front" id="front6" >
+                    <h1>IDEATHON</h1>
+                </div>
+                <div class="back">
+                    <div class="back-content">
+                        <h3><a href="#"><i class="fa-solid fa-clock"></i></a> TIME:00:00 AM</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-people-group"></i></a> TEAM-MEMBERS:<br>2-MEMBERS(MAX)</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-clock"></i></a> DURATION: 15mins TO 20mins</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-location-dot"></i></a> VENUE:Maharaja</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-dollar-sign"></i></a> FEES: 100/-PerTeam</h3>
+                        <a href="/ideathon"><button>REGISTER</button></a>
+                    </div>
+                    
+                </div>
+            </div>
+        
+        </div>
+
+
+        <div class="box">
+            <div class="card middle">
+                <div class="front" id="front7">
+                    
+                    <h1>FUTURE TECH SUMMIT</h1>
+                </div>
+                <div class="back">
+                    <div class="back-content">
+                        <h3><a href="#"><i class="fa-solid fa-clock"></i></a> TIME:00:00 AM</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-people-group"></i></a> TEAM-MEMBERS: <br>2-MEMBERS(MAX)</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-clock"></i></a> DURATION: 15mins TO 20mins</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-location-dot"></i></a> VENUE:Maharaja</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-dollar-sign"></i></a> FESS:100/-PerTeam</h3>
+                        <a href="/future"><button>REGISTER</button></a>
+                    </div>
+                    
+                </div>
+            </div>
+        
+        </div>
+
+
+         <div class="box">
+            <div class="card middle">
+                <div class="front" id="front8">
+                    
+                    <h1>DATA HACK</h1>
+                </div>
+                <div class="back">
+                    <div class="back-content">
+                        <h3><a href="#"><i class="fa-solid fa-clock"></i></a> TIME:00:00 AM</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-people-group"></i></a> TEAM-MEMBERS: <br>2-MEMBERS(MAX)</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-clock"></i></a> DURATION: 15mins TO 20mins</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-location-dot"></i></a> VENUE:Maharaja</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-dollar-sign"></i></a> FESS:100/-PerTeam</h3>
+                        <a href="/datahack"><button>REGISTER</button></a>
+                    </div>
+                    
+                </div>
+            </div>
+        
+        </div>
+
+        <div class="box">
+            <div class="card middle">
+                <div class="front" id="front9">
+                    
+                    <h1>CODE CAMP</h1>
+                </div>
+                <div class="back">
+                    <div class="back-content">
+                        <h3><a href="#"><i class="fa-solid fa-clock"></i></a> TIME:00:00 AM</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-people-group"></i></a> TEAM-MEMBERS: <br>2-MEMBERS(MAX)</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-clock"></i></a> DURATION: 15mins TO 20mins</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-location-dot"></i></a> VENUE:Maharaja</h3>
+                        <br>
+                        <h3><a href="#"><i class="fa-solid fa-dollar-sign"></i></a> FESS:100/-PerTeam</h3>
+                        <a href="/code"><button>REGISTER</button></a>
+                    </div>
+                    
+                </div>
+            </div>
+        
+        </div>
+
+    </div></section>
+    <div class="section1">
+        <div class="box">
+            <h1>CONTACT:</h1>
+    <br>
+    <br>
+    
+    <h3><a href="#"><i class="fa-solid fa-phone-volume"></i></a>: +91 9345437715 </h3> 
+    <br>
+    <h3><a href="#"><i class="fa-solid fa-envelope"></i></a>: karanm.21cse@kongu.edu .</h3>
+    <br>
+    <br>
+   
+    <h1>SOCIAL MEDIA:</h1>
+    <br>
+    <br>
+    <div class="social-media">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://instagram.com/_.karan._m?igshid=ZDdkNTZiNTM="><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-telegram"></i></a>  
+    </div>
+        </div>
+        
+    </div>
+</body>
+</html>

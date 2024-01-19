@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Details</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+   
+</head>
+<body>
+    <h1>Contact Details</h1>
+    <div id="tableContainer"></div>
+    <button id="emailAllButton">Email All</button>
+
+
+
+    <script>
+      
+
+      fetch('/fetchData/bun')
+        .then(response => response.json())
+        .then(data => {
+          const table = document.createElement('table');
+          const headers = ['Name1', 'Roll1', 'Dept1', 'Email', 'Name2', 'Roll2', 'Dept2', 'Transaction', 'Count'];
+
+          // Create table headers
+          const headerRow = document.createElement('tr');
+          headers.forEach(headerText => {
+            const th = document.createElement('th');
+            th.appendChild(document.createTextNode(headerText));
+            headerRow.appendChild(th);
+          });
+          // Add an extra cell for the delete button column
+          const deleteHeader = document.createElement('th');
+          deleteHeader.appendChild(document.createTextNode('Action'));
+          headerRow.appendChild(deleteHeader);
+          table.appendChild(headerRow);
+
+          // Populate table with data
+          data.forEach(contact => {
+            const row = document.createElement('tr');
+            headers.forEach(header => {
+              const cell = document.createElement('td');
+              cell.appendChild(document.createTextNode(contact[header]));
+              row.appendChild(cell);
+            });
+
+            const deleteButtonCell = document.createElement('td');
+            const deleteButton = createDeleteButton(row, contact['id']); // Assuming 'id' is the unique identifier for each contact
+            deleteButtonCell.appendChild(deleteButton);
+            row.appendChild(deleteButtonCell);
+
+            table.appendChild(row);
+          });
+
+          document.getElementById('tableContainer').appendChild(table);
+        })
+        .catch(error => console.error('Error:', error));
+
+
+        function createDeleteButton(row, contactId) {
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'Delete';
+  deleteButton.addEventListener('click', () => {
+    console.log(contactId);
+    // Send a request to delete the data from the database
+    fetch(`/deleteData/bun/${contactId}`, {
+      method: 'DELETE'
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Remove the row from the table
+      row.remove();
+    })
+    .catch(error => console.log("erron in deleting"));
+  });
+  return deleteButton;
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('emailAllButton').addEventListener('click', sendEmails);
+
+    function sendEmails() {
+        const table = document.querySelector('table');
+        const emails = Array.from(table.querySelectorAll('tr td:nth-child(4)')).map(td => td.innerHTML); // Assuming the email column is the 4th column
+
+        const emailString = emails.join(',');
+
+        const subject = encodeURIComponent("Subject for your email");
+
+        const body = encodeURIComponent("Body of your email");
+
+        window.location.href = `mailto:${emailString}?subject=${subject}&body=${body}`;
+    }
+});
+
+}    </script>
+</body>
+</html>
